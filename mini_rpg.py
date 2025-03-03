@@ -1,8 +1,9 @@
-class Dungeon:
-    def __init__(self, name):
-        self.name = name
-        self.rooms = {}
+import config
 
+class Dungeon:
+    def __init__(self, name, rooms):
+        self.name = name
+        self.rooms = rooms
 
 # Room properties = name, description, search_results, exits, enemies, treasure
 class Room:
@@ -37,8 +38,7 @@ class Weapon(Treasure):
 class Armor(Treasure):
     pass
 
-dungeon: Dungeon = Dungeon("Tomb of Minor Inconvenience")
-print(dungeon.name)
-
-room_one: Room = Room("Main Entrance", 30, 20, "description", 3, "contents")
-print(room_one.description)
+dungeon: Dungeon = Dungeon("Tomb of Minor Inconvenience", config.dungeon_rooms)
+print(f"WELCOME to the {dungeon.name}!")
+print(f"You enter the {dungeon.rooms["room_6"]["name"]}.")
+print(dungeon.rooms["room_6"]["description"])
