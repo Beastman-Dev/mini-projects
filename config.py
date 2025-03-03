@@ -63,5 +63,4 @@ room_6 = {
     "treasure": {"gold": 11, "silver": 27, "copper": 59}
 }
 
-r1_description = ""
-r1_contents = ""
+

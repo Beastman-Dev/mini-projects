@@ -3,14 +3,15 @@ class Dungeon:
         self.name = name
         self.rooms = {}
 
+# Room properties = name, description, search_results, exits, enemies, treasure
 class Room:
-    def __init__(self, name, length, width, description, exits, contents):
+    def __init__(self, name, description, search_results, exits, enemies, treasure):
         self.name = name
-        self.length = length
-        self.width = width
         self.description = description
+        self.search_results = search_results
         self.exits = exits
-        self.contents = contents
+        self.enemies = enemies
+        self.treasure = treasure
 
 class Creature:
     def __init__(self, name, health):
