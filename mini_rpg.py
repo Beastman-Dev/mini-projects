@@ -1,7 +1,8 @@
 class Dungeon:
-    def __init__(self, name, rooms):
+    def __init__(self, name):
         self.name = name
-        self.rooms = rooms
+        self.rooms = {}
+
 
 # Room properties = name, description, search_results, exits, enemies, treasure
 class Room:
