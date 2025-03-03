@@ -1,7 +1,7 @@
 class Dungeon:
-    def __init__(self, name, rooms):
+    def __init__(self, name):
         self.name = name
-        self.rooms = rooms
+        self.rooms = {}
 
 class Room:
     def __init__(self, name, length, width, description, exits, contents):
@@ -35,5 +35,8 @@ class Weapon(Treasure):
 class Armor(Treasure):
     pass
 
-dungeon: Dungeon = Dungeon("Tomb of Minor Inconvenience", 1)
+dungeon: Dungeon = Dungeon("Tomb of Minor Inconvenience")
 print(dungeon.name)
+
+room_one: Room = Room("Main Entrance", 30, 20, "description", 3, "contents")
+print(room_one.description)
