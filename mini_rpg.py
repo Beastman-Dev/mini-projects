@@ -99,11 +99,6 @@ class Potion(Treasure):
 
 
 
-# Dungeon unit tests
-# dungeon: Dungeon = Dungeon("Tomb of Minor Inconvenience", config.dungeon_rooms)
-# print(f"WELCOME to the {dungeon.name}!")
-# print(f"You enter the {dungeon.rooms["room_6"]["name"]}.")
-# print(dungeon.rooms["room_6"]["description"])
 
 # Creature unit tests
 # enemy: Monster = Monster("Goblin 1", 50, 5)
@@ -128,22 +123,110 @@ class Potion(Treasure):
 # print(f"{enemy.name}'s health is now {enemy.health}.")
 # print(f"{sorcerer.name}'s mana is now {sorcerer.mana}.")
 
-## Use potion unit tests
 
-##   Create potions and test Creatures
-health_potion: Potion = Potion("health", 10, 10)
-mana_potion: Potion = Potion("mana", 10, 10)
-fighter: Character = Character("Beastman", 100, 10)
-sorcerer: Sorcerer = Sorcerer("Gandalf", 100, 10, 100)
+## Unit Tests
+
+def create_dungeon_unit_tests():
+    try:
+        dungeon: Dungeon = Dungeon("Tomb of Minor Inconvenience", config.dungeon_rooms)
+        if dungeon.name == "Tomb of Minor Inconvenience":
+            return True
+    except Exception as e:
+        return e
+
+def create_room_unit_tests():
+    try:
+        room: Room = Room("test_room", "A small room with a single door.", "You find a health potion!", ["north"], ["Goblin 1"], ["health potion"])
+        if room.name == "test_room":
+            return True
+    except Exception as e:
+        return e
+
+def create_creature_unit_tests():
+    try:
+        enemy: Monster = Monster("Goblin 1", 50, 5)
+        character: Character = Character("Beastman", 100, 10)
+        sorcerer: Sorcerer = Sorcerer("Gandalf", 100, 10, 100)
+        if enemy.name == "Goblin 1" and character.name == "Beastman" and sorcerer.name == "Gandalf":
+            return True
+    except Exception as e:
+        return e
+
+def create_potion_unit_tests():
+    try:
+        health_potion: Potion = Potion("health", 10, 10)
+        mana_potion: Potion = Potion("mana", 10, 10)
+        if health_potion.type == "health" and mana_potion.type == "mana":
+            return True
+    except Exception as e:
+        return e
+
+def use_potion_unit_tests():
+    try:
+        fighter: Character = Character("Beastman", 100, 10)
+        sorcerer: Sorcerer = Sorcerer("Gandalf", 100, 10, 100)
+        health_potion: Potion = Potion("health", 10, 10)
+        mana_potion: Potion = Potion("mana", 10, 10)
+        health_potion.use_potion(fighter)
+        mana_potion.use_potion(sorcerer)
+        if fighter.current_health == 100 and sorcerer.current_mana == 100:
+            return True
+    except Exception as e:
+        return e
+
+## Dungeon creation tests
+# passed = create_dungeon_unit_tests()
+# if passed == True:
+#     result = "PASSED"
+# else:
+#     result = "FAILED"
+# print(f"Dungeon creation unit test: {result}")
+# if passed != True:
+#     print(f"Error: {passed}")
+
+## Room creation tests
+# passed = create_room_unit_tests()
+# if passed == True:
+#     result = "PASSED"
+# else:
+#     result = "FAILED"
+# print(f"Room creation unit test: {result}")
+# if passed != True:
+#     print(f"Error: {passed}")
+
+## Creature creation tests
+# passed = create_creature_unit_tests()
+# if passed == True:
+#     result = "PASSED"
+# else:
+#     result = "FAILED"
+# print(f"Creature creation unit test: {result}")
+# if passed != True:
+#     print(f"Error: {passed}")
+
+## Potion creation tests
+# passed = create_potion_unit_tests()
+# if passed == True:
+#     result = "PASSED"
+# else:
+#     result = "FAILED"
+# print(f"Potion creation unit test: {result}")
+# if passed != True:
+#     print(f"Error: {passed}")
+
+
+
+# fighter: Character = Character("Beastman", 100, 10)
+# sorcerer: Sorcerer = Sorcerer("Gandalf", 100, 10, 100)
 
 ##   Use potions
-print(f"{fighter.name} has {fighter.health} HP.")
-health_potion.use_potion(fighter)
-print(f"{fighter.name}'s health is now {fighter.health}.")
+# print(f"{fighter.name} has {fighter.health} HP.")
+# health_potion.use_potion(fighter)
+# print(f"{fighter.name}'s health is now {fighter.health}.")
 
-print(f"{sorcerer.name} has {sorcerer.mana} Mana.")
-mana_potion.use_potion(sorcerer)
-print(f"{sorcerer.name}'s mana is now {sorcerer.mana}.")
+# print(f"{sorcerer.name} has {sorcerer.mana} Mana.")
+# mana_potion.use_potion(sorcerer)
+# print(f"{sorcerer.name}'s mana is now {sorcerer.mana}.")
 
-mana_potion.use_potion(fighter)
+# mana_potion.use_potion(fighter)
 
